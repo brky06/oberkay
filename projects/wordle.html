@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wordle Oyunu - 5 harfli kelime tahmin oyunu. İnteraktif oyun deneyimi ile eğlenceli zaman geçirin.">
+    <meta name="keywords" content="wordle, kelime oyunu, puzzle, word game, türkçe oyun">
+    <meta name="author" content="Ömer Berkay Özyılmaz">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Wordle Oyunu | Ömer Berkay Özyılmaz">
+    <meta property="og:description" content="5 harfli kelime tahmin oyunu - İnteraktif oyun deneyimi">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <title data-lang="project_7_page_title">Wordle Oyunu | Kişisel Site</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/language.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body class="light-theme">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html" data-lang="logo">
+                    <img src="/assets/logo/blogoblack.png" alt="Logo">
+                    Ömer Berkay Özyılmaz
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html" data-lang="nav_home">Ana Sayfa</a>
+                <a href="../about.html" data-lang="nav_about">Ben Kimim</a>
+                <a href="../projects.html" class="active" data-lang="nav_projects">Projelerim</a>
+                <a href="../contact.html" data-lang="nav_contact">İletişim</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="settings">
+                <button id="theme-toggle" aria-label="Tema Değiştir">🌓</button>
+                <button id="lang-toggle" data-lang="lang_button">EN</button>
+                <button id="animation-toggle" aria-label="Animasyonları Aç/Kapat">✨</button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu">
+        <a href="../index.html" data-lang="nav_home">Ana Sayfa</a>
+        <a href="../about.html" data-lang="nav_about">Ben Kimim</a>
+        <a href="../projects.html" data-lang="nav_projects">Projelerim</a>
+        <a href="../contact.html" data-lang="nav_contact">İletişim</a>
+        <div class="mobile-settings">
+            <button id="mobile-theme-toggle" aria-label="Tema Değiştir">🌓</button>
+            <button id="mobile-lang-toggle" data-lang="lang_button">EN</button>
+            <button id="mobile-animation-toggle" aria-label="Animasyonları Aç/Kapat">✨</button>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+
+    <main>
+        <section class="project-hero">
+            <div class="project-header animate-on-scroll">
+                <h1 data-lang="project_7_title">Wordle Oyunu</h1>
+                <p class="project-subtitle" data-lang="project_7_subtitle">5 harfli kelime tahmin oyunu</p>
+            </div>
+            <div class="project-image-main animate-on-scroll delay-1">
+                <img src="../assets/images/wordle1.png" alt="Wordle Ana Görsel" class="main-image">
+            </div>
+        </section>
+
+        <section class="project-details">
+            <div class="project-info animate-on-scroll">
+                <h2 data-lang="project_overview">Proje Genel Bakış</h2>
+                <p data-lang="project_7_overview">Bu Wordle oyunu, orijinal popüler kelime tahmin oyununun kişiselleştirilmiş bir versiyonudur. 5 harfli kelimeleri en fazla 6 denemede tahmin etmeye çalışırsınız. Her tahminden sonra, harflerin doğru olup olmadığını ve doğru konumda olup olmadığını gösteren renkli ipuçları alırsınız. Yeşil kutucuklar harfin doğru ve doğru yerde olduğunu, sarı kutucuklar harfin doğru ama yanlış yerde olduğunu, siyah kutucuklar ise harfin kelimede olmadığını gösterir.</p>
+            </div>
+
+            <div class="wordle-instructions animate-on-scroll">
+                <p data-lang="wordle_instructions">5 harfli kelimeyi tahmin edin. Her tahminden sonra kutucukların rengi değişerek ne kadar yakın olduğunuzu gösterecektir.</p>
+                
+                <p data-lang="wordle_instructions_2">Yeşil: Doğru harf ve doğru konum<br>
+                Sarı: Doğru harf ama yanlış konum<br>
+                Siyah: Harf kelimede yok</p>
+
+            </div>
+
+            <div class="game-message" id="game-message"></div>
+
+            <div class="wordle-container animate-on-scroll">
+                <div class="wordle-board" id="wordle-board">
+                </div>
+
+                <div class="keyboard-container" id="keyboard-container">
+                </div>
+                
+                <div class="game-controls">
+                    <button id="new-game-btn" class="btn" data-lang="wordle_new_game">Yeni Oyun</button>
+                </div>
+            </div>
+
+            <div class="stats-container animate-on-scroll">
+                <h2 data-lang="wordle_stats_title">İstatistikler</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div id="games-played" class="stat-value">0</div>
+                        <div class="stat-label" data-lang="wordle_played">Oynanan</div>
+                    </div>
+                    <div class="stat-box">
+                        <div id="games-won" class="stat-value">0</div>
+                        <div class="stat-label" data-lang="wordle_won">Kazanılan</div>
+                    </div>
+                    <div class="stat-box">
+                        <div id="current-streak" class="stat-value">0</div>
+                        <div class="stat-label" data-lang="wordle_current_streak">Seri</div>
+                    </div>
+                    <div class="stat-box">
+                        <div id="max-streak" class="stat-value">0</div>
+                        <div class="stat-label" data-lang="wordle_max_streak">En İyi Seri</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-technologies animate-on-scroll">
+                <h2 data-lang="technologies_used">Kullanılan Teknolojiler</h2>
+                <ul class="tech-list">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>JSON</li>
+                </ul>
+            </div>
+
+            <div class="project-features animate-on-scroll">
+                <h2 data-lang="key_features">Temel Özellikler</h2>
+                <ul class="feature-list">
+                    <li data-lang="feature_7_1">Rastgele seçilen 5 harfli kelimeler</li>
+                    <li data-lang="feature_7_2">Renkli ipuçları sistemi</li>
+                    <li data-lang="feature_7_3">Sanal klavye desteği</li>
+                    <li data-lang="feature_7_4">Oyun istatistikleri</li>
+                    <li data-lang="feature_7_5">Mobil cihazlarla uyumlu tasarım</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="project-navigation">
+            <div class="nav-container">
+                <a href="../projects.html" class="btn project-back" data-lang="back_to_projects">Projelere Dön</a>
+                <div class="project-nav-links">
+                    <a href="drawing.html" class="project-nav-link prev" data-lang="prev_project">Önceki Proje</a>
+                    <span class="project-nav-link next disabled" style="pointer-events: none; opacity: 0.5;">Sonraki Proje</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-gallery animate-on-scroll">
+            <h2 data-lang="project_gallery">Proje Galerisi</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="../assets/images/wordle1.png" alt="Wordle Ana Sayfa" class="gallery-image">
+                    <p data-lang="gallery_7_1">Ana Ekran Görünümü</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/wordle2.png" alt="Wordle Oyun Ekranı" class="gallery-image">
+                    <p data-lang="gallery_7_2">Oyun Süreci</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/wordle3.png" alt="Wordle Sonuç Ekranı" class="gallery-image">
+                    <p data-lang="gallery_7_3">Sonuç Ekranı</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-lang="footer_text">© 2025 Ömer Berkay Özyılmaz. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            let words = [];
+            let currentWord = "";
+            let currentRow = 0;
+            let currentTile = 0;
+            let isGameOver = false;
+            let isAnimating = false;
+            let currentLang = document.documentElement.lang || 'tr';
+            
+            let stats = {
+                played: 0,
+                won: 0,
+                currentStreak: 0,
+                maxStreak: 0
+            };
+            
+            const wordleBoard = document.getElementById('wordle-board');
+            const keyboardContainer = document.getElementById('keyboard-container');
+            const newGameBtn = document.getElementById('new-game-btn');
+            const gameMessage = document.getElementById('game-message');
+            
+            let keyboardLayout = [
+                ['e', 'r', 't', 'y', 'u', 'ı', 'o', 'p', 'ğ', 'ü'],
+                ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ş', 'i'],
+                ['ENTER', 'z', 'c', 'v', 'b', 'n', 'm', 'ö', 'ç', 'BACKSPACE']
+            ];
+
+            const enKeyboardLayout = [
+                ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+                ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+                ['ENTER', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'BACKSPACE']
+            ];
+            
+            const trKeyboardLayout = [
+                ['e', 'r', 't', 'y', 'u', 'ı', 'o', 'p', 'ğ', 'ü'],
+                ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ş', 'i'],
+                ['ENTER', 'z', 'c', 'v', 'b', 'n', 'm', 'ö', 'ç', 'BACKSPACE']
+            ];
+            
+            document.addEventListener('languageChanged', function(event) {
+                const newLang = event.detail.language;
+                if (newLang !== currentLang) {
+                    currentLang = newLang;
+                    loadWords().then(() => {
+                        keyboardLayout = currentLang === 'en' ? enKeyboardLayout : trKeyboardLayout;
+                        createKeyboard();
+                        startNewGame();
+                    });
+                }
+            });
+            
+            function createBoard() {
+                wordleBoard.innerHTML = '';
+                
+                for (let i = 0; i < 6; i++) {
+                    const row = document.createElement('div');
+                    row.className = 'wordle-row';
+                    
+                    for (let j = 0; j < 5; j++) {
+                        const tile = document.createElement('div');
+                        tile.className = 'wordle-tile';
+                        tile.dataset.row = i;
+                        tile.dataset.col = j;
+                        row.appendChild(tile);
+                    }
+                    
+                    wordleBoard.appendChild(row);
+                }
+            }
+            
+            function createKeyboard() {
+                keyboardContainer.innerHTML = '';
+                
+                keyboardLayout.forEach((row, rowIndex) => {
+                    const keyboardRow = document.createElement('div');
+                    keyboardRow.className = 'keyboard-row';
+                    
+                    row.forEach(key => {
+                        const keyElement = document.createElement('div');
+                        keyElement.className = 'keyboard-key';
+                        
+                        if (key === 'ENTER' || key === 'BACKSPACE') {
+                            keyElement.classList.add('wide');
+                            keyElement.textContent = key === 'ENTER' ? '↵' : '←';
+                        } else {
+                            keyElement.textContent = key.toUpperCase();
+                        }
+                        
+                        keyElement.dataset.key = key;
+                        keyElement.addEventListener('click', () => handleKeyClick(key));
+                        keyboardRow.appendChild(keyElement);
+                    });
+                    
+                    keyboardContainer.appendChild(keyboardRow);
+                });
+            }
+            
+            async function loadWords() {
+                try {
+                    const lang = document.documentElement.lang || 'tr';
+                    console.log("Current language detected:", lang);
+                    
+                    const fileName = lang === 'en' ? 'engkelimeler.json' : 'trkelimeler.json';
+                    console.log("Attempting to load word file:", fileName);
+                    
+                    const response = await fetch(`../assets/data/${fileName}`);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${fileName}: ${response.status} ${response.statusText}`);
+                    }
+                    
+                    const data = await response.json();
+                    console.log(`Successfully loaded ${data.words.length} words`);
+                    words = data.words;
+                    
+                    if (!words || words.length === 0) {
+                        console.error("Word list is empty!");
+                        return false;
+                    }
+                    
+                    return true;
+                } catch (error) {
+                    console.error("Error loading words:", error);
+                    showMessage(`Kelime listesi yüklenemedi: ${error.message}`, "error");
+                    return false;
+                }
+            }
+            
+            function getRandomWord() {
+                if (!words || words.length === 0) {
+                    console.error("No words available to select from!");
+                    return "hata";
+                }
+                const randomIndex = Math.floor(Math.random() * words.length);
+                const word = words[randomIndex];
+                //console.log("Selected word:", word);
+                return word;
+            }
+            
+            function loadStats() {
+                const savedStats = localStorage.getItem('wordleStats');
+                if (savedStats) {
+                    stats = JSON.parse(savedStats);
+                }
+                updateStatsDisplay();
+            }
+            
+            function updateStats(won) {
+                stats.played++;
+                
+                if (won) {
+                    stats.won++;
+                    stats.currentStreak++;
+                    stats.maxStreak = Math.max(stats.maxStreak, stats.currentStreak);
+                } else {
+                    stats.currentStreak = 0;
+                }
+                
+                localStorage.setItem('wordleStats', JSON.stringify(stats));
+                updateStatsDisplay();
+            }
+            
+            function updateStatsDisplay() {
+                document.getElementById('games-played').textContent = stats.played;
+                document.getElementById('games-won').textContent = stats.won;
+                document.getElementById('current-streak').textContent = stats.currentStreak;
+                document.getElementById('max-streak').textContent = stats.maxStreak;
+            }
+            
+            function startNewGame() {
+                currentRow = 0;
+                currentTile = 0;
+                isGameOver = false;
+                
+                const tiles = document.querySelectorAll('.wordle-tile');
+                tiles.forEach(tile => {
+                    tile.textContent = '';
+                    tile.className = 'wordle-tile';
+                });
+                
+                const keys = document.querySelectorAll('.keyboard-key');
+                keys.forEach(key => {
+                    if (key.dataset.key !== 'ENTER' && key.dataset.key !== 'BACKSPACE') {
+                        key.className = 'keyboard-key';
+                    } else {
+                        key.className = 'keyboard-key wide';
+                    }
+                });
+                
+                hideMessage();
+                
+                currentWord = getRandomWord();
+                //console.log("Çözülecek kelime:", currentWord); 
+            }
+            
+            function handleKey(key) {
+                if (isGameOver || isAnimating) return;
+                
+                if (key === 'ENTER') {
+                    submitGuess();
+                } else if (key === 'BACKSPACE') {
+                    deleteLetter();
+                } else if (isValidLetter(key) && currentTile < 5) {
+                    addLetter(key);
+                }
+            }
+            
+            function isValidLetter(key) {
+                if (currentLang === 'en') {
+                    return /^[a-z]$/i.test(key);
+                } else {
+                    return /^[a-zçğıöşüi]$/i.test(key);
+                }
+            }
+            
+            function handleKeyClick(key) {
+                handleKey(key);
+            }
+            
+            function setupKeyboardListener() {
+                document.addEventListener('keydown', e => {
+                    let key = e.key.toLowerCase();
+                    
+                    if (key === 'enter') {
+                        handleKey('ENTER');
+                    } else if (key === 'backspace') {
+                        handleKey('BACKSPACE');
+                    } else if (isValidLetter(key)) {
+                        handleKey(key);
+                    }
+                });
+            }
+            
+            function addLetter(letter) {
+                if (currentTile < 5) {
+                    const tile = document.querySelector(`.wordle-tile[data-row="${currentRow}"][data-col="${currentTile}"]`);
+                    tile.textContent = letter.toUpperCase();
+                    tile.classList.add('filled');
+                    currentTile++;
+                }
+            }
+            
+            function deleteLetter() {
+                if (currentTile > 0) {
+                    currentTile--;
+                    const tile = document.querySelector(`.wordle-tile[data-row="${currentRow}"][data-col="${currentTile}"]`);
+                    tile.textContent = '';
+                    tile.classList.remove('filled');
+                }
+            }
+            
+            function submitGuess() {
+                if (currentTile < 5) {
+                    showMessage(getTranslation('wordle_not_enough'), 'error');
+                    shakeRow();
+                    return;
+                }
+                
+                let guess = '';
+                for (let i = 0; i < 5; i++) {
+                    const tile = document.querySelector(`.wordle-tile[data-row="${currentRow}"][data-col="${i}"]`);
+                    guess += tile.textContent.toLowerCase();
+                }
+                
+                console.log("Submitted guess:", guess);
+                console.log("Available words:", words.length);
+                
+                if (!words.includes(guess)) {
+                    console.log("Word not in list:", guess);
+                    showMessage(getTranslation('wordle_not_valid'), 'error');
+                    shakeRow();
+                    return;
+                }
+                
+                const result = evaluateGuess(guess);
+                animateTiles(result);
+            }
+            
+            function evaluateGuess(guess) {
+                const result = Array(5).fill('absent');
+                const wordArray = currentWord.split('');
+                const guessArray = guess.split('');
+                
+                for (let i = 0; i < 5; i++) {
+                    if (guessArray[i] === wordArray[i]) {
+                        result[i] = 'correct';
+                        wordArray[i] = null; 
+                    }
+                }
+                
+                for (let i = 0; i < 5; i++) {
+                    if (result[i] !== 'correct') {
+                        const index = wordArray.indexOf(guessArray[i]);
+                        if (index !== -1) {
+                            result[i] = 'present';
+                            wordArray[index] = null; 
+                        }
+                    }
+                }
+                
+                return result;
+            }
+            
+            function shakeRow() {
+                const row = document.querySelector(`.wordle-row:nth-child(${currentRow + 1})`);
+                row.querySelectorAll('.wordle-tile').forEach(tile => {
+                    tile.classList.add('shake');
+                });
+                
+                setTimeout(() => {
+                    row.querySelectorAll('.wordle-tile').forEach(tile => {
+                        tile.classList.remove('shake');
+                    });
+                }, 500);
+            }
+            
+            function animateTiles(result) {
+                isAnimating = true;
+                let allCorrect = true;
+                
+                const animateTile = (index) => {
+                    if (index >= 5) {
+                        isAnimating = false;
+                        
+                        if (allCorrect) {
+                            gameWon();
+                        } else if (currentRow === 5) {
+                            gameLost();
+                        } else {
+                            currentRow++;
+                            currentTile = 0;
+                        }
+                        return;
+                    }
+                    
+                    const tile = document.querySelector(`.wordle-tile[data-row="${currentRow}"][data-col="${index}"]`);
+                    const letter = tile.textContent.toLowerCase();
+                    const keyElement = document.querySelector(`.keyboard-key[data-key="${letter}"]`);
+                    
+                    tile.classList.add('flip');
+                    
+                    setTimeout(() => {
+                        tile.classList.add(result[index]);
+                        
+                        if (keyElement) {
+                            if (result[index] === 'correct') {
+                                keyElement.className = 'keyboard-key correct';
+                            } else if (result[index] === 'present' && !keyElement.classList.contains('correct')) {
+                                keyElement.className = 'keyboard-key present';
+                            } else if (result[index] === 'absent' && 
+                                      !keyElement.classList.contains('correct') && 
+                                      !keyElement.classList.contains('present')) {
+                                keyElement.className = 'keyboard-key absent';
+                            }
+                        }
+                        
+                        if (result[index] !== 'correct') {
+                            allCorrect = false;
+                        }
+                        
+                        tile.classList.remove('flip');
+                        tile.classList.add('flip-back');
+                        
+                        setTimeout(() => {
+                            tile.classList.remove('flip-back');
+                            animateTile(index + 1);
+                        }, 250);
+                        
+                    }, 250);
+                };
+                
+                animateTile(0);
+            }
+            
+            function gameWon() {
+                isGameOver = true;
+                updateStats(true);
+                showMessage(getTranslation('wordle_win_message'), 'success');
+            }
+            
+            function gameLost() {
+                isGameOver = true;
+                updateStats(false);
+                showMessage(getTranslation('wordle_lose_message') + ' ' + currentWord.toUpperCase(), 'error');
+            }
+            
+            function getTranslation(key) {
+                const currentLang = document.documentElement.lang || 'tr';
+                if (window.translations && window.translations[currentLang] && window.translations[currentLang][key]) {
+                    return window.translations[currentLang][key];
+                }
+                
+                const defaultTranslations = {
+                    tr: {
+                        wordle_win_message: "Tebrikler! Kelimeyi buldunuz!",
+                        wordle_lose_message: "Oyun bitti! Kelime:",
+                        wordle_not_enough: "Yeterli harf yok!",
+                        wordle_not_valid: "Geçerli bir kelime değil!"
+                    },
+                    en: {
+                        wordle_win_message: "Congratulations! You found the word!",
+                        wordle_lose_message: "Game over! The word was:",
+                        wordle_not_enough: "Not enough letters!",
+                        wordle_not_valid: "Not a valid word!"
+                    }
+                };
+                
+                return defaultTranslations[currentLang][key] || key;
+            }
+            
+            function showMessage(text, type) {
+                gameMessage.textContent = text;
+                gameMessage.className = `game-message ${type}`;
+                gameMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    hideMessage();
+                }, 3000);
+            }
+            
+            function hideMessage() {
+                gameMessage.classList.remove('show');
+            }
+            
+            newGameBtn.addEventListener('click', startNewGame);
+            
+            async function initApp() {
+                createBoard();
+                
+                currentLang = document.documentElement.lang || 'tr';
+                console.log("Initial language:", currentLang);
+                
+                keyboardLayout = currentLang === 'en' ? enKeyboardLayout : trKeyboardLayout;
+                createKeyboard();
+                setupKeyboardListener();
+                loadStats();
+                
+                console.log("Loading word list...");
+                const wordsLoaded = await loadWords();
+                
+                if (wordsLoaded) {
+                    console.log("Word list loaded successfully, starting new game");
+                    startNewGame();
+                } else {
+                    console.error("Failed to load words");
+                    showMessage("Kelimeler yüklenemedi! Lütfen sayfayı yenileyin.", "error");
+                }
+                
+                document.addEventListener('languageChanged', () => {
+                    if (isGameOver) {
+                        if (document.querySelector('.game-message.success')) {
+                            gameMessage.textContent = getTranslation('wordle_win_message');
+                        } else if (document.querySelector('.game-message.error')) {
+                            gameMessage.textContent = getTranslation('wordle_lose_message') + ' ' + currentWord.toUpperCase();
+                        }
+                    }
+                });
+            }
+            
+            initApp();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ömer Berkay Özyılmaz'ın yazılım projeleri. Web geliştirme, mobil uygulamalar ve teknoloji çözümleri.">
+    <meta name="keywords" content="projeler, yazılım projeleri, web development, portfolio, Ömer Berkay Özyılmaz">
+    <meta name="author" content="Ömer Berkay Özyılmaz">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Projelerim | Ömer Berkay Özyılmaz">
+    <meta property="og:description" content="Yazılım projeleri ve teknoloji çözümleri. Web geliştirme ve mobil uygulamalar.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title data-lang="projects_title">Projelerim | Ömer Berkay Özyılmaz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/blogowhite.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/blogoblack.png">
+    <script src="js/animations.js" defer></script>
+    <script src="js/language.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body class="light-theme">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html" data-lang="logo">
+                    <img src="/assets/logo/blogoblack.png" alt="Logo">
+                    Ömer Berkay Özyılmaz
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" data-lang="nav_home">Ana Sayfa</a>
+                <a href="about.html" data-lang="nav_about">Ben Kimim</a>
+                <a href="projects.html" class="active" data-lang="nav_projects">Projelerim</a>
+                <a href="contact.html" data-lang="nav_contact">İletişim</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="settings">
+                <button id="theme-toggle" aria-label="Tema Değiştir">🌓</button>
+                <button id="lang-toggle" data-lang="lang_button">EN</button>
+                <button id="animation-toggle" aria-label="Animasyonları Aç/Kapat">✨</button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu">
+        <a href="index.html" data-lang="nav_home">Ana Sayfa</a>
+        <a href="about.html" data-lang="nav_about">Ben Kimim</a>
+        <a href="projects.html" data-lang="nav_projects">Projelerim</a>
+        <a href="contact.html" data-lang="nav_contact">İletişim</a>
+        <div class="mobile-settings">
+            <button id="mobile-theme-toggle" aria-label="Tema Değiştir">🌓</button>
+            <button id="mobile-lang-toggle" data-lang="lang_button">EN</button>
+            <button id="mobile-animation-toggle" aria-label="Animasyonları Aç/Kapat">✨</button>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+    <main>
+        <section class="projects-hero">
+            <div class="projects-intro animate-on-scroll">
+                <h1 data-lang="projects_heading">Projelerim</h1>
+                <p data-lang="projects_intro">Aşağıda, üzerinde çalıştığım bazı projeleri bulabilirsiniz. Her proje, heyecan verici zorluklarla dolu benzersiz bir yolculuktur.</p>
+            </div>
+        </section>
+        <section class="projects-grid">
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <img src="assets/images/projectmotor.png" alt="Efficiency Challenge Logo" class="project-logo">
+                </div>
+                <div class="project-info">
+                    <h3 data-lang="project_1_title">Efficiency Challenge</h3>
+                    <p data-lang="project_1_desc">Yüksek verimli elektrikli araçların geliştirilmesi ve proje koordinasyonu üzerine kapsamlı bir mühendislik çalışması.</p>
+                    <div class="project-tags">
+                        <span>Python</span><span>ANSYS Maxwell</span><span>RMxprt</span><span>Web</span>
+                    </div>
+                    <a href="projects/efficiencychallange.html" class="btn" data-lang="view_project">Projeyi Gör</a>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll delay-1">
+                <div class="project-image">
+                    <img src="assets/images/projectsgpt.png" alt="Komponent GPT Logo" class="project-logo">
+                </div>
+                <div class="project-info">
+                    <h3 data-lang="project_2_title">Elektronik Komponent Açıklama GPT Modeli</h3>
+                    <p data-lang="project_2_desc">Elektrik-elektronik mühendisleri için geliştirilen yapay zeka destekli komponent açıklama ve bilgi alma sistemi.</p>
+                    <div class="project-tags">
+                        <span>Python</span><span>GPT</span><span>Veritabanı</span>
+                    </div>
+                    <a href="projects/komponentgpt.html" class="btn" data-lang="view_project">Projeyi Gör</a>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll delay-2">
+                <div class="project-image">
+                    <img src="assets/images/projectschot.png" alt="Schottky AI Logo" class="project-logo">
+                </div>
+                <div class="project-info">
+                    <h3 data-lang="project_3_title">Schottky Yüzey Tespiti ve Arayüz Tasarımı</h3>
+                    <p data-lang="project_3_desc">Otsu thresholding ile Schottky yüzeylerinin tespiti, veri analizi ve PyQt5 arayüzüyle kullanıcı dostu çözüm.</p>
+                    <div class="project-tags">
+                        <span>Python</span><span>PyQt5</span><span>Görüntü İşleme</span>
+                    </div>
+                    <a href="projects/schottkyai.html" class="btn" data-lang="view_project">Projeyi Gör</a>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll delay-3">
+                <div class="project-image">
+                    <img src="assets/images/projectsdrug.png" alt="İlaç Geliştirme Logo" class="project-logo">
+                </div>
+                <div class="project-info">
+                    <h3 data-lang="project_4_title">Yapay Zeka Destekli İlaç Geliştirme</h3>
+                    <p data-lang="project_4_desc">Biyoinformatik ve yapay zeka algoritmalarıyla kişiselleştirilmiş ilaç geliştirme sistemi.</p>
+                    <div class="project-tags">
+                        <span>Python</span><span>RDKit</span><span>BioBERT</span><span>AI</span>
+                    </div>
+                    <a href="projects/health.html" class="btn" data-lang="view_project">Projeyi Gör</a>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll delay-4">
+                <div class="project-image">
+                    <img src="assets/images/projectstar.png" alt="Yıldızları Bağla Logo" class="project-logo">
+                </div>
+                <div class="project-info">
+                    <h3 data-lang="project_5_title">Yıldızları Bağla</h3>
+                    <p data-lang="project_5_desc">Rastgele yerleştirilen yıldızlar arasında çizgilerle bağ kurarak desen oluşturma üzerine interaktif bir oyun.</p>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Canvas</span>
+                    </div>
+                    <a href="projects/stars.html" class="btn" data-lang="view_project">Projeyi Gör</a>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll delay-5">
+                <div class="project-image">
+                    <img src="assets/images/projectpaint.png" alt="Küçük Çizim Alanı Logo" class="project-logo">
+                </div>
+                <div class="project-info">
+                    <h3 data-lang="project_6_title">Küçük Çizim Alanı</h3>
+                    <p data-lang="project_6_desc">Basit ve eğlenceli çizimler için dijital bir tuval. Çizimlerinizi kaydedebilir ve paylaşabilirsiniz.</p>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Canvas API</span>
+                    </div>
+                    <a href="projects/drawing.html" class="btn" data-lang="view_project">Projeyi Gör</a>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll delay-6">
+                <div class="project-image">
+                    <img src="assets/images/projectwordle.png" alt="Wordle Oyunu Logo" class="project-logo">
+                </div>
+                <div class="project-info">
+                    <h3 data-lang="project_7_title">Wordle Oyunu</h3>
+                    <p data-lang="project_7_desc">Harf bazlı ipuçlarıyla 5 harfli kelimeleri tahmin etmeye dayalı popüler kelime oyunu.</p>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>JSON</span>
+                    </div>
+                    <a href="projects/wordle.html" class="btn" data-lang="view_project">Projeyi Gör</a>
+                </div>
+            </div>
+        </section>
+        <section class="cta">
+            <div class="cta-content animate-on-scroll">
+                <h2 data-lang="cta_heading">Birlikte Çalışalım</h2>
+                <p data-lang="cta_text">Bir projeniz mi var? Hayallerinizi gerçeğe dönüştürmek için benimle iletişime geçin.</p>
+                <a href="contact.html" class="btn btn-large" data-lang="contact_me">İletişime Geç</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p data-lang="footer_text">© 2025 Ömer Berkay Özyılmaz. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

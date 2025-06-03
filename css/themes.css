@@ -1,0 +1,100 @@
+:root {
+    --light-primary: #2563eb;
+    --light-secondary: #3b82f6;
+    --light-accent: #60a5fa;
+    --light-bg: #f8fafc;
+    --light-surface: #ffffff;
+    --light-gray: #e2e8f0;
+    --light-text: #334155;
+    --light-border: #cbd5e1;
+
+    --dark-primary: #60a5fa;
+    --dark-secondary: #3b82f6;
+    --dark-accent: #2563eb;
+    --dark-bg: #0f172a;
+    --dark-surface: #1e293b;
+    --dark-gray: #334155;
+    --dark-text: #f1f5f9;
+    --dark-border: #475569;
+}
+
+.light-theme {
+    --primary-color: var(--light-primary);
+    --secondary-color: var(--light-secondary);
+    --accent-color: var(--light-accent);
+    --background-color: var(--light-bg);
+    --surface-color: var(--light-surface);
+    --gray-color: var(--light-gray);
+    --text-color: var(--light-text);
+    --border-color: var(--light-border);
+    
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.light-theme header {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.light-theme .feature,
+.light-theme .contact-form,
+.light-theme .contact-info,
+.light-theme .project-card {
+    background-color: var(--surface-color);
+}
+
+.light-theme .project-tags span {
+    background-color: var(--gray-color);
+    color: var(--text-color);
+}
+
+.dark-theme {
+    --primary-color: var(--dark-primary);
+    --secondary-color: var(--dark-secondary);
+    --accent-color: var(--dark-accent);
+    --background-color: var(--dark-bg);
+    --surface-color: var(--dark-surface);
+    --gray-color: var(--dark-gray);
+    --text-color: var(--dark-text);
+    --border-color: var(--dark-border);
+    
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark-theme header {
+    background-color: rgba(30, 41, 59, 0.95);
+}
+
+.dark-theme .nav-links a {
+    color: var(--text-color);
+}
+
+.dark-theme .feature,
+.dark-theme .contact-form,
+.dark-theme .contact-info,
+.dark-theme .project-card {
+    background-color: var(--surface-color);
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group textarea {
+    background-color: var(--background-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.dark-theme .project-tags span {
+    background-color: var(--gray-color);
+    color: var(--dark-text);
+}
+
+.dark-theme .settings button {
+    background-color: var(--gray-color);
+    color: var(--text-color);
+}
+
+.dark-theme .map-placeholder {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}

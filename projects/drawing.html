@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Küçük Çizim Alanı - İnteraktif çizim uygulaması. HTML5 Canvas ile geliştirilmiş yaratıcı çizim aracı.">
+    <meta name="keywords" content="çizim uygulaması, HTML5 Canvas, interaktif uygulama, drawing app">
+    <meta name="author" content="Ömer Berkay Özyılmaz">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Küçük Çizim Alanı | Ömer Berkay Özyılmaz">
+    <meta property="og:description" content="İnteraktif çizim uygulaması - HTML5 Canvas ile yaratıcı çizim aracı">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <title data-lang="project_6_page_title">Küçük Çizim Alanı | Kişisel Site</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/language.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body class="light-theme">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html" data-lang="logo">
+                    <img src="/assets/logo/blogoblack.png" alt="Logo">
+                    Ömer Berkay Özyılmaz
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html" data-lang="nav_home">Ana Sayfa</a>
+                <a href="../about.html" data-lang="nav_about">Ben Kimim</a>
+                <a href="../projects.html" class="active" data-lang="nav_projects">Projelerim</a>
+                <a href="../contact.html" data-lang="nav_contact">İletişim</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="settings">
+                <button id="theme-toggle" aria-label="Tema Değiştir">🌓</button>
+                <button id="lang-toggle" data-lang="lang_button">EN</button>
+                <button id="animation-toggle" aria-label="Animasyonları Aç/Kapat">✨</button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu">
+        <a href="../index.html" data-lang="nav_home">Ana Sayfa</a>
+        <a href="../about.html" data-lang="nav_about">Ben Kimim</a>
+        <a href="../projects.html" data-lang="nav_projects">Projelerim</a>
+        <a href="../contact.html" data-lang="nav_contact">İletişim</a>
+        <div class="mobile-settings">
+            <button id="mobile-theme-toggle" aria-label="Tema Değiştir">🌓</button>
+            <button id="mobile-lang-toggle" data-lang="lang_button">EN</button>
+            <button id="mobile-animation-toggle" aria-label="Animasyonları Aç/Kapat">✨</button>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+
+    <main>
+        <section class="project-hero">
+            <div class="project-header animate-on-scroll">
+                <h1 data-lang="project_6_title">Küçük Çizim Alanı</h1>
+                <p class="project-subtitle" data-lang="project_6_subtitle">Eğlenceli ve basit bir dijital çizim deneyimi</p>
+            </div>
+        </section>
+
+        <section class="project-details">
+            <div class="project-info animate-on-scroll">
+                <h2 data-lang="project_overview">Proje Genel Bakış</h2>
+                <p data-lang="project_6_overview">Bu mini çizim uygulaması, kullanıcılara basit ve keyifli bir dijital çizim deneyimi sunuyor. Modern web teknolojilerinin gücünü kullanarak, ziyaretçilerin yaratıcılıklarını ifade etmelerini ve birkaç tıklamayla sanat eserlerini indirmelerini sağlıyor. Renk seçimi, fırça boyutu ayarlama ve temizleme gibi temel araçlarla donatılmış bu uygulama, her yaştan kullanıcıya hitap ediyor.</p>
+            </div>
+
+            <div class="drawing-container animate-on-scroll">
+                <div class="canvas-wrapper" style="width: 600px; height: 400px;">
+                    <canvas id="drawing-canvas" width="600" height="400"></canvas>
+                </div>
+                
+                <div class="drawing-controls">
+                    <div class="control-group">
+                        <label for="color-picker" data-lang="color">Renk:</label>
+                        <input type="color" id="color-picker" class="color-picker" value="#000000">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="brush-size" data-lang="brush_size">Fırça Boyutu:</label>
+                        <input type="range" id="brush-size" class="brush-size" min="1" max="30" value="5">
+                        <span id="size-display">5</span>
+                    </div>
+                </div>
+                
+                <div class="drawing-actions">
+                    <button id="clear-canvas" class="btn" data-lang="clear_canvas">Temizle</button>
+                    <button id="download-drawing" class="btn" data-lang="download_drawing">İndir</button>
+                </div>
+            </div>
+
+            <div class="project-technologies animate-on-scroll">
+                <h2 data-lang="technologies_used">Kullanılan Teknolojiler</h2>
+                <ul class="tech-list">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>Canvas API</li>
+                </ul>
+            </div>
+
+            <div class="project-features animate-on-scroll">
+                <h2 data-lang="key_features">Temel Özellikler</h2>
+                <ul class="feature-list">
+                    <li data-lang="feature_6_1">Sezgisel çizim arayüzü</li>
+                    <li data-lang="feature_6_2">Özelleştirilebilir fırça boyutu</li>
+                    <li data-lang="feature_6_3">Sınırsız renk seçimi</li>
+                    <li data-lang="feature_6_4">Çizimleri PNG formatında indirme</li>
+                    <li data-lang="feature_6_5">Mobil ekranlar için duyarlı tasarım</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="project-navigation">
+            <div class="nav-container">
+                <a href="../projects.html" class="btn project-back" data-lang="back_to_projects">Projelere Dön</a>
+                <div class="project-nav-links">
+                    <a href="stars.html" class="project-nav-link prev" data-lang="prev_project">Önceki Proje</a>
+                    <a href="wordle.html" class="project-nav-link next" data-lang="next_project">Sonraki Proje</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-lang="footer_text">© 2025 Ömer Berkay Özyılmaz. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('drawing-canvas');
+            const ctx = canvas.getContext('2d');
+            const colorPicker = document.getElementById('color-picker');
+            const brushSize = document.getElementById('brush-size');
+            const sizeDisplay = document.getElementById('size-display');
+            const clearBtn = document.getElementById('clear-canvas');
+            const downloadBtn = document.getElementById('download-drawing');
+            
+            let isDrawing = false;
+            let lastX = 0;
+            let lastY = 0;
+            
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = colorPicker.value;
+            ctx.lineWidth = brushSize.value;
+            
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            function startDrawing(e) {
+                isDrawing = true;
+                const { offsetX, offsetY } = getCoordinates(e);
+                [lastX, lastY] = [offsetX, offsetY];
+                
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(lastX, lastY);
+                ctx.stroke();
+            }
+            
+            function draw(e) {
+                if (!isDrawing) return;
+                const { offsetX, offsetY } = getCoordinates(e);
+                
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(offsetX, offsetY);
+                ctx.stroke();
+                
+                [lastX, lastY] = [offsetX, offsetY];
+            }
+            
+            function stopDrawing() {
+                isDrawing = false;
+            }
+            
+            function getCoordinates(e) {
+                if (e.type.includes('touch')) {
+                    const rect = canvas.getBoundingClientRect();
+                    const touch = e.touches[0] || e.changedTouches[0];
+                    return {
+                        offsetX: touch.clientX - rect.left,
+                        offsetY: touch.clientY - rect.top
+                    };
+                } else {
+                    return {
+                        offsetX: e.offsetX,
+                        offsetY: e.offsetY
+                    };
+                }
+            }
+            
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                startDrawing(e);
+            });
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                draw(e);
+            });
+            canvas.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                stopDrawing();
+            });
+            
+            colorPicker.addEventListener('input', () => {
+                ctx.strokeStyle = colorPicker.value;
+            });
+            
+            brushSize.addEventListener('input', () => {
+                ctx.lineWidth = brushSize.value;
+                sizeDisplay.textContent = brushSize.value;
+            });
+            
+            clearBtn.addEventListener('click', () => {
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.strokeStyle = colorPicker.value;
+            });
+            
+            downloadBtn.addEventListener('click', () => {
+                const link = document.createElement('a');
+                link.download = 'my-drawing.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+            
+            // Ekran boyutu değişikliğinde canvas'ı yeniden boyutlandırma
+            window.addEventListener('resize', resizeCanvasResponsively);
+            
+            function resizeCanvasResponsively() {
+                if (window.innerWidth <= 600) {
+                    const containerWidth = canvas.parentElement.clientWidth;
+                    const aspectRatio = canvas.height / canvas.width;
+                    
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = canvas.width;
+                    tempCanvas.height = canvas.height;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCtx.drawImage(canvas, 0, 0);
+                    
+                    canvas.style.width = containerWidth + 'px';
+                    canvas.style.height = (containerWidth * aspectRatio) + 'px';
+                    
+                    ctx.drawImage(tempCanvas, 0, 0);
+                } else {
+                    canvas.style.width = '';
+                    canvas.style.height = '';
+                }
+            }
+            
+            // Başlangıçta bir kez çağır
+            resizeCanvasResponsively();
+        });
+    </script>
+</body>
+</html>
